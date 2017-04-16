@@ -1,0 +1,26 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+;code
+start: LHLD 4200
+SPHL
+LHLD 4202
+XCHG
+LXI H,0000H
+LXI B,0000H
+NEXT: DAD SP
+      JNC LOOP
+      INX B
+LOOP: DCX D
+      MOV A,E
+      ORA D
+      JNZ NEXT
+SHLD 4204
+MOV L,C
+MOV H,B
+SHLD 4206
+HLT
