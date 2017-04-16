@@ -1,0 +1,24 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: LXI H,4500
+MOV E,M
+MVI D,00H
+INX H
+MOV A,M
+LXI H,0000H
+MVI B,08
+MULT: DAD H
+      RAL
+      JNC SKIP
+      DAD D
+SKIP: DCR B
+      JNZ MULT
+      SHLD 4502
+HLT
